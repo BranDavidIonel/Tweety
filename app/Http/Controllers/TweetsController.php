@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 use App\Tweet;
 class TweetsController extends Controller
 {
+    public function index()
+    {
+       //dd(  auth()->user()->timeline());
+       //exit();
+        return view('home', [
+            'tweets' => auth()->user()->timeline()
+        ]);
+    }
     public function store()
     {
         $attributes = request()->validate([
