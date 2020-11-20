@@ -10,7 +10,7 @@
     </div>
 
     <div>
-        <a href="{{route('profile',$tweet->user->name)}}">
+        <a href="{{$tweet->user->path()}}">
             <h5 class="font-bold mb-2">{{ $tweet->user->name }}</h5>
         </a>
 

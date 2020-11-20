@@ -6,9 +6,10 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Tweet;
+use App\Folowable;
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable,Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -71,8 +72,15 @@ class User extends Authenticatable
          'following_user_id'
      );
  }
+ /*
+ in locul la 
+ //Route::get('/profiles/{user:name}', 'ProfilesController@show')->name('profile');
  public function getRouteKeyName()
  {
      return 'name';
+ }*/
+ public function path()
+ {
+     return route('profile', $this->name);
  }
 }

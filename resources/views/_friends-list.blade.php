@@ -6,7 +6,7 @@
         <li class="mb-4 w-20">
          
                 
-                <a href="{{route('profile',$user->name)}}" class="flex items-center max-w-xs">
+                <a href="{{$user->path()}}" class="flex items-center max-w-xs">
                     <img
                         src="{{ $user->avatar }}"
                         alt=""

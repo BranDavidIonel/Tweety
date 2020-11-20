@@ -21,8 +21,10 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/tweets', 'TweetsController@index')->name('home');
     Route::post('/tweets', 'TweetsController@store');
+    Route::post('/profiles/{user:name}/follow', 'FollowsController@store');
 });
-Route::get('/profile/{user}','ProfilesController@show')->name('profile');
+Route::get('/profile/{user:name}','ProfilesController@show')->name('profile');
+//Route::get('/profiles/{user:name}', 'ProfilesController@show')->name('profile');
 //Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
