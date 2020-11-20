@@ -1,8 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
+<x-master>
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mx-auto px-6 py-4 bg-green-600">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
@@ -74,4 +72,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-master>

@@ -1,11 +1,9 @@
-@extends('layouts.app')
-
-@section('content')
+<x-master>
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="container mx-auto px-6 py-4 bg-green-600">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="font-bold text-lg mb-4">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -39,7 +37,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row mb-6">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -53,12 +51,12 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="px-6 py-3 rounded text-sm uppercase bg-blue-600 text-white">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="px-6 py-3 rounded text-sm uppercase bg-blue-600 text-white" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
@@ -70,4 +68,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-master>
