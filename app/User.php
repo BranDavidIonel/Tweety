@@ -38,10 +38,10 @@ class User extends Authenticatable
     ];
     public function getAvatarAttribute()
     {
-        return "https://i.pravatar.cc/40?u=" . $this->email;
+        return "https://i.pravatar.cc/120?u=" . $this->email;
     }
-    public function tweet(){
-        return $this->belongsToMany(Tweet::class);
+    public function tweets(){
+        return $this->hasMany(Tweet::class);
 
     }
     public function timeline()
@@ -70,5 +70,9 @@ class User extends Authenticatable
          'user_id', 
          'following_user_id'
      );
+ }
+ public function getRouteKeyName()
+ {
+     return 'name';
  }
 }
