@@ -11,4 +11,9 @@ class ProfilesController extends Controller
         //dd($user);
         return view('profiles.show', compact('user'));
     }
+    public function edit(User $user){
+        //abort_if($user->isNot(auth()->user()),404);
+        $this->authorize('edit',$user);
+        return view('profiles.edit',compact('user'));
+    }
 }

@@ -1,3 +1,5 @@
+@unless(auth()->user()->is($user))
+<!-- if(auth()->user()->isNot($user)) -->
 <form method="POST"
       action="/profiles/{{ $user->name }}/follow"
 >
@@ -9,3 +11,4 @@
         {{ auth()->user()->following($user) ? 'Unfollow Me' : 'Follow Me' }}
     </button>
 </form>
+@endunless
