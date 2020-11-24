@@ -16,7 +16,7 @@
                 @can('edit',$user)
                     <a
                         href="{{ URL::to($user->path('edit')) }}"
-                        class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2"
+                        class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2 "
                     >Edit Profile</a>
                 @endcan
                 <x-follow-button :user="$user"> </x-follow-button>
@@ -31,11 +31,11 @@
         </p>
 
         <img
-            src="{{ $user->avatar }}"
-            alt=""
+            src=" {{ URL::to( $user->avatar) }}"
+            alt="avatar"
             class="rounded-full mr-2 absolute"
-            style="width: 150px; left: calc(50% - 75px); top: 35%"
-        >
+            style="width: 100px; height=100px; left: calc(50% - 75px); top: 35%"
+        />
 
     </header>
 
