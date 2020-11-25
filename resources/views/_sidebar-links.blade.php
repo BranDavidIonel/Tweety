@@ -32,15 +32,15 @@
         </a>
     </li>
     <li><a
-            class="font-bold text-lg block"
+            class="font-bold text-lg  mb-4 block"
             href="#"
         >More</a>
     </li>
     <li>
-    <a class="font-bold text-lg block" href="{{ route('logout') }}"
-        onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">
-    {{ __('Logout') }}
-    </a>
+    <form method="POST" action="/logout">
+        @csrf
+        <button class="font-bold text-lg block">Logout</button> 
+    </form>
+    
     </li>
 </ul>
