@@ -29,7 +29,7 @@ class ProfilesController extends Controller
                 Rule::unique('users')->ignore($user),
             ],
             'name' => ['string', 'required', 'max:255'],
-            'avatar' => ['image'],
+            'avatar' => ['file'],
             'email' => [
                 'string',
                 'required',

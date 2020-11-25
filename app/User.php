@@ -37,10 +37,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    //$user->paaword='foobar'
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
     public function getAvatarAttribute($value)
     {
         //return "https://i.pravatar.cc/120?u=" . $this->email;
-        return "images/".$value;
+        return $value ? "images/".$value :"/images/default-avatar.jpeg";
         //return asset($value);
     }
     public function tweets(){
