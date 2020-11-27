@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'username','avatar','name', 'email', 'password',
+       'id','username','avatar','name', 'email', 'password',
     ];
 
     /**
@@ -62,6 +62,7 @@ class User extends Authenticatable
         $friends=$this->follows()->pluck('id');
         return Tweet::whereIn('user_id',$friends)
                 ->orWhere('user_id',$this->id)
+                ->withLikes()
                 ->latest()->get();
     }
     
@@ -93,4 +94,5 @@ class User extends Authenticatable
      //return route('profile', $this->name);
      return $append ? "{$path}/{$append}":$path;
  }
+
 }

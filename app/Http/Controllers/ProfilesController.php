@@ -10,7 +10,11 @@ class ProfilesController extends Controller
     public function show(User $user)
     {
         //dd($user);
-        return view('profiles.show', compact('user'));
+        return view('profiles.show',[
+         'user'=>$user,
+        'tweets'=>$user->tweets()->withLikes()->paginate(10),
+        
+        ]);
     }
     public function edit(User $user){
         //abort_if($user->isNot(auth()->user()),404);
