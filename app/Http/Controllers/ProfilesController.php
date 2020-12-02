@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\User;
+use App\Tweet;
 class ProfilesController extends Controller
 {
     public function show(User $user)
     {
-        //dd($user);
+        //dd($user->tweets()->withLikes()->paginate(1));
         return view('profiles.show',[
          'user'=>$user,
-        'tweets'=>$user->tweets()->withLikes()->paginate(10),
+        'tweets'=>$user->tweetsLikes()
         
         ]);
     }

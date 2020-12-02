@@ -17,4 +17,5 @@ class Tweet extends Model
         return auth()->user();
     }
 
+
 }

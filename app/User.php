@@ -49,8 +49,12 @@ class User extends Authenticatable
         //return asset($value);
     }
     public function tweets(){
-        return $this->hasMany(Tweet::class);
+        return $this->hasMany(Tweet::class)->latest();
 
+    }
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
     public function timeline()
     {
@@ -64,6 +68,9 @@ class User extends Authenticatable
                 ->orWhere('user_id',$this->id)
                 ->withLikes()
                 ->latest()->get();
+    }
+    public function tweetsLikes(){
+        return $this->hasMany(Tweet::class)->latest()->withLikes()->paginate(5);
     }
     
  public function follow(User $user)

@@ -18,23 +18,21 @@ trait Likable
 
     public function isLikedBy(User $user)
     {
-        return true;
-        /*
+        
         return (bool) $user->likes
             ->where('tweet_id', $this->id)
             ->where('liked', true)
-            ->count();*/
+            ->count();
     }
 
     public function isDislikedBy(User $user)
     {
-        /*
+        
         return (bool) $user->likes
             ->where('tweet_id', $this->id)
             ->where('liked', false)
             ->count();
-            */
-            return false;
+            
     }
 
     public function likes()
