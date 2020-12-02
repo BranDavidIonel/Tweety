@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'id','username','avatar','name', 'email', 'password',
+       'id','username','avatar','banner_img','description','name', 'email', 'password',
     ];
 
     /**
@@ -46,6 +46,12 @@ class User extends Authenticatable
     {
         //return "https://i.pravatar.cc/120?u=" . $this->email;
         return $value ? "images/".$value :"/images/default-avatar.jpeg";
+        //return asset($value);
+    }
+    public function getBannerImgAttribute($value)
+    {
+        
+        return $value ? "images/".$value :"/images/default-profile-banner.jpg";
         //return asset($value);
     }
     public function tweets(){

@@ -33,8 +33,19 @@ class ProfilesController extends Controller
                 'alpha_dash',
                 Rule::unique('users')->ignore($user),
             ],
-            'name' => ['string', 'required', 'max:255'],
+            'name' => [
+            'string', 
+            'required', 
+            'max:255'
+            ],
+
             'avatar' => ['file'],
+            'banner_img' => ['file'],
+            'description' => [
+                'string',
+             'required', 
+             'max:500'
+            ],
             'email' => [
                 'string',
                 'required',
@@ -61,6 +72,17 @@ class ProfilesController extends Controller
             //$attributes['avatar'] = request('avatar')->store('avatars');
             $attributes['avatar']=$image_full_name;
            // dd($attributes['avatar']);
+        }
+        if (request('banner_img')) {
+            $upload_path='images/';
+            $image_name=date('dmy_H_s_i');
+            $image=request('banner_img');
+            $ext=strtolower($image->getClientOriginalExtension());
+            $image_full_name=$image_name.'.'.$ext;
+            $success=$image->move($upload_path,$image_full_name);
+            //$attributes['avatar'] = request('avatar')->store('avatars');
+            $attributes['banner_img']=$image_full_name;
+           // dd($attributes['banner_img']);
         }
 
         $user->update($attributes);
