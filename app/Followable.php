@@ -18,7 +18,7 @@ trait Followable
     {
         // Tip: You can also use the toggle() method.
         //      We'll cover this in the next episode.
-          $this->follows()->toggle($user);
+          return $this->follows()->toggle($user);
         /*
         if ($this->following($user)) {
             return $this->unfollow($user);

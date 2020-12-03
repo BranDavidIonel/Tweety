@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Session;
 use App\User;
 use App\Tweet;
 class ProfilesController extends Controller
@@ -85,8 +86,10 @@ class ProfilesController extends Controller
            // dd($attributes['banner_img']);
         }
 
-        $user->update($attributes);
+        if($user->update($attributes)){
+            Session::flash('success','Update profile '.'"'.$user->username.'"'.'!') ;
+        }
 
-        return redirect($user->path());
+        return back();
     }
 }

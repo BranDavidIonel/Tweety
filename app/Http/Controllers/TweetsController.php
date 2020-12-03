@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
 use App\Tweet;
 class TweetsController extends Controller
 {
@@ -19,11 +20,13 @@ class TweetsController extends Controller
         $attributes = request()->validate([
             'body' => 'required|max:255'
         ]);
-
-        Tweet::create([
+           
+        if(Tweet::create([
             'user_id' => auth()->id(),
             'body' => $attributes['body']   
-        ]);
+        ])){
+            Session::flash('success','You published a tweet successfully!') ;
+        }
 
         return redirect('/tweets');
     }
