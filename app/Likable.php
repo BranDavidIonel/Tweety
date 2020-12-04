@@ -34,7 +34,7 @@ trait Likable
             ->count();
             
     }
-    public function users(){
+    public function users_like(){
         return $this->belongsToMany(User::class,
                                     'likes'
                                     );
@@ -58,7 +58,7 @@ trait Likable
             $this->users()->detach(auth()->user());
             
         }else if($this->isDislikedBy(auth()->user())&&($liked==false)){
-            $this->users()->detach(auth()->user());
+            $this->users_like()->detach(auth()->user());
         }else{
             $this->likes()->updateOrCreate(
                 [

@@ -30,4 +30,13 @@ class TweetsController extends Controller
 
         return redirect('/tweets');
     }
+    public function destroy(Tweet $tweet){
+       
+        if($tweet->delete_tweet(auth()->user())){
+            Session::flash('success','The tweet '.'"'.$tweet->body.'"'.'it was deleted !') ;
+        }else{
+            Session::flash('success','You do not have permission to delete '.'"'.$tweet->body.'"'.'!');
+        }
+       return  back();
+    }
 }

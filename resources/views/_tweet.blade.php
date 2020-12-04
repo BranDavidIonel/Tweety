@@ -21,5 +21,19 @@
          @auth
             <x-like-buttons :tweet="$tweet" />
         @endauth
+        @if($tweet->user_id==auth()->user()->id)
+        <form method="POST"
+          action="/tweets/{{ $tweet->id }}/tweet"
+        >
+        @csrf
+        @method('DELETE')
+        <button type="submit"
+                    class="text-xs border border-red-500 text-red-500 rounded-md hover:text-white hover:bg-red-600"
+                    
+            >
+            Delete
+        </button>
+        </form>
+        @endif
     </div>
 </div>
