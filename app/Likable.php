@@ -34,7 +34,11 @@ trait Likable
             ->count();
             
     }
-
+    public function users(){
+        return $this->belongsToMany(User::class,
+                                    'likes'
+                                    );
+    }
     public function likes()
     {
         return $this->hasMany(Like::class);
@@ -47,14 +51,25 @@ trait Likable
 
     public function like($user = null, $liked = true)
     {
-        $this->likes()->updateOrCreate(
-            [
-                'user_id' => $user ? $user->id : auth()->id(),
-            ],
-            [
-                'liked' => $liked,
-            ]
-        );
+
+        if( $this->isLikedBy(auth()->user())&&($liked==true)){
+            //var_dump(auth()->user());
+            //dd($this->users());
+            $this->users()->detach(auth()->user());
+            
+        }else if($this->isDislikedBy(auth()->user())&&($liked==false)){
+            $this->users()->detach(auth()->user());
+        }else{
+            $this->likes()->updateOrCreate(
+                [
+                    'user_id' => $user ? $user->id : auth()->id()
+                ],
+                [
+                    'liked' => $liked,
+                ]
+            );
+        }
+       
     }
     
 }
