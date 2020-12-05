@@ -19,9 +19,9 @@ class Tweet extends Model
     // I delete tweet that belong  the current user\
     public function delete_tweet($user){
         if($this->user_id==$user->id){
-        $tweetDel=$this::find($this->id);
-        $tweetDel->delete();
-        return true;
+            $tweetDel=$this::find($this->id);
+            $tweetDel->delete();
+            return true;
         }else{
             return false;
         }

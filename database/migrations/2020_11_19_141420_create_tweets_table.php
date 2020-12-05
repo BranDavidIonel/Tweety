@@ -17,6 +17,7 @@ class CreateTweetsTable extends Migration
              $table->bigIncrements('id');
             $table->foreignId('user_id');
             $table->string('body');
+            $table->string('name_file')->default('');
             $table->timestamps();
         });
     }

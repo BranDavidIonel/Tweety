@@ -1,0 +1,37 @@
+---in query class
+public function selectTop5zone($table){
+          $this->connect();
+          $sql="SELECT  * FROM `$table` ORDER BY voturi LIMIT 5";
+          $result = mysqli_query($this->con, $sql) or die(mysqli_error("could not connect"));
+          return $result;
+        
+    }
+
+--inserare voturi
+public function insertVoturi($table,$vot,$idparinte){
+	$this->connect();
+   	$sql = "INSERT INTO `$table` (`idparinte`, `vot`) VALUES('$idparinte','$vot')";
+    	mysqli_query($this->con, $sql)  or die(mysqli_error("could not connect"));
+}
+
+
+--topVotateZone.html
+ 		$select=new QuiresSQL();        
+         	$result=$select->selectTop5zone("top_zone");
+ 		// se selecteaza fiecare linie din tabel
+                    echo'<ul class="list-group">';
+		$nr=1;
+                    while($row = mysqli_fetch_array( $result)){
+                     
+                        $id=$row['idparinte'];
+                        $nume=$row['nume'];
+                        $descriere=$row['descriere'];
+                              
+
+                        echo'<li class="list-group-item active"> <span class="badge">'.$nr.'</span>'.$nume.'</li>
+                             <li class="list-group-item>'.$descriere.'</li>
+                             ';
+                       
+                    $nr++;
+                   }
+                    echo '</list-group>';
