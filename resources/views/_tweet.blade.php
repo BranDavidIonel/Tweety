@@ -18,10 +18,13 @@
         <p class="text-sm">
             {{ $tweet->body }}
         </p>
+        
         @if(!empty($tweet->name_file))
-        <a href="{{URL::to('/attash_tweet/'.$tweet->name_file)}}" class="text-sm hover:text-white hover:bg-blue-600" download>
-        Files
+        @foreach(explode(',',$tweet->name_file) as $file)
+        <a href="{{URL::to('/attash_tweet/'.$file)}}" class="text-sm hover:text-white hover:bg-blue-600" download>
+        {{$file}}
         </a>
+        @endforeach
         @endif
          @auth
             <x-like-buttons :tweet="$tweet" />
