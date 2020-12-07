@@ -1,3 +1,4 @@
+
 @unless(auth()->user()->is($user))
 <!-- if(auth()->user()->isNot($user)) -->
 <form method="POST"

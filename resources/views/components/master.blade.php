@@ -24,12 +24,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
     function myDisable() {
-   //$("#alert_toast").prop('disabled',true);
     document.getElementById("alert_toast").style.display="none";
     }
      </script>
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    
 </head>
 <body>
 <div id="app">
@@ -43,9 +43,10 @@
             </h1>
         </header>
     </section>
-
+    
     {{ $slot }}
 </div>
+@livewireScripts
 </body>
 <script src="http://unpkg.com/turbolinks"></script>
 </html>
