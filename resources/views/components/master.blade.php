@@ -29,7 +29,7 @@
      </script>
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    
+    @livewireStyles
 </head>
 <body>
 <div id="app">
@@ -48,5 +48,5 @@
 </div>
 @livewireScripts
 </body>
-<script src="http://unpkg.com/turbolinks"></script>
+    <!--<script src="http://unpkg.com/turbolinks"></script>-->
 </html>

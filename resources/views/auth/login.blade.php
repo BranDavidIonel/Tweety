@@ -41,7 +41,7 @@
                            type="password"
                            name="password"
                            id="password"
-                           autocomplete="current-password"
+                           required autocomplete="current-password"
                     >
 
                     @error('password')

@@ -11,7 +11,7 @@ class SearchUsers extends Component
     {
          $users=null;
          if(empty($this->search)){
-            $users=User::paginate(5);
+            $users=User::paginate(4);
         }else{
             $users= User::where('username',$this->search)->paginate(1);
         }  

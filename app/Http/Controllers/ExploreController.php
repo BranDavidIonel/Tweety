@@ -7,6 +7,6 @@ use App\User;
 class ExploreController extends Controller
 {
     public function __invoke(){
-        return view('explore',['users'=>User::paginate(10)]);
+        return view('explore');
     }
 }
