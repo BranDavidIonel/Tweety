@@ -55,7 +55,7 @@ trait Likable
         if( $this->isLikedBy(auth()->user())&&($liked==true)){
             //var_dump(auth()->user());
             //dd($this->users());
-            $this->users()->detach(auth()->user());
+            $this->users_like()->detach(auth()->user());
             
         }else if($this->isDislikedBy(auth()->user())&&($liked==false)){
             $this->users_like()->detach(auth()->user());
