@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/tweets/{tweet}/tweet','TweetsController@destroy');
     Route::post('/profile/{user:username}/follow', 'FollowsController@store')->name('follow');
     Route::get('/profile/{id}/followers_notify', 'FollowersNotificationController@show')->name('followers_notify');
-    Route::get('/profile/{id}/read_notify', 'FollowersNotificationController@read')->name('read_notify');
+    //Route::get('/profile/{id}/read_notify', 'FollowersNotificationController@read')->name('read_notify');
     Route::get('/profile/{user:username}/edit', 'ProfilesController@edit');
     Route::patch('/profile/{user:username}', 'ProfilesController@update')->middleware('can:edit,user');
     //Route::get('/profile/{user:name}/edit', 'ProfilesController@edit')->middleware('can:edit,user');

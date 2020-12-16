@@ -1,6 +1,7 @@
 <div>
+    <div class="mb-5">
     <input wire:model="search" type="text" placeholder="Search users..."/>
-
+    </div>
     <div>
         @foreach ($users as $user)
             <a href="{{ $user->path() }}" class="flex items-center mb-5">
