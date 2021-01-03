@@ -3,12 +3,14 @@
         @csrf
 
         <textarea
+            id="comment_tweet"
             name="body"
             rows="7"
             class="w-full"
             placeholder="What's up doc?"
             required
         ></textarea>
+        <label id="characterLeft">Characters Left:</label>
         <div class="mb-6">
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
                   for="avatar"

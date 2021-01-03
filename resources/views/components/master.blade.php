@@ -9,26 +9,33 @@
 
     <title>{{ config('app.name', 'Tweety') }}</title>
 
-    <!-- Scripts -->
+    <!-- Scripts 
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    -->
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     
-        <!-- jQuery library -->
+        <!-- jQuery library-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  
-    <!-- Latest compiled JavaScript -->
+    
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    -->
+    <!-- Latest compiled JavaScript 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    -->
+    <!-- disable a toast -->
     <script>
     function myDisable() {
     document.getElementById("alert_toast").style.display="none";
     }
-     </script>
-    <!-- Styles -->
+    </script>
+     
+    <!-- Styles 
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    -->
     @livewireStyles
 </head>
 <body>
@@ -49,4 +56,17 @@
 @livewireScripts
 </body>
     <!--<script src="http://unpkg.com/turbolinks"></script>-->
+    <script>
+    var maxCharacters = 400;
+    $('#characterLeft').text(maxCharacters + ' characters left');
+    $('#comment_tweet').keyup(function () {
+        var textLength =$(this).val().length;
+        if (textLength >= maxCharacters) {
+            $('#characterLeft').text('You have reached the limit of ' + maxCharacters + ' characters');
+        } else {
+            var count = maxCharacters - textLength;
+            $('#characterLeft').text(count + ' characters left');
+        }
+    });
+    </script>
 </html>
