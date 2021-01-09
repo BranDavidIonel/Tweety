@@ -8,6 +8,7 @@ use App\Message;
 class Messages extends Component
 {
     public $messages;
+    public $message_send;
     public $id_user;
     public function mount(){
         $user_id_first=User::where('id','<>', auth()->user()->id)->first();
@@ -18,12 +19,31 @@ class Messages extends Component
     {
         $users=User::where('id','<>', auth()->user()->id)->paginate(2);
       
-        $this->messages=Message::where('send_user_id','=',$this->id_user)->get()->all();
+        $this->messages=Message::
+        where('user_id','=',auth()->user()->id)
+        ->Where('send_user_id','=',$this->id_user)
+        ->orWhere('send_user_id','=',auth()->user()->id)
+        ->where('user_id','=',$this->id_user)
+        ->get()->all();
         //dd($messages);
         return view('livewire.messages',compact('users','messages'));
     }
     public function setMessagesUserId($id_user){
         //dd($id_user);
         $this->id_user=$id_user;
+    }
+    public function submit()
+    {
+       // dd($this->message_send);
+        $this->validate([
+            'message_send' => 'required|min:2'
+        ]);
+        $data=[
+            'user_id'=>auth()->user()->id,
+            'send_user_id'=>$this->id_user,
+            'message' => $this->message_send
+        ];
+        Message::create($data);
+  
     }
 }

@@ -19,10 +19,22 @@
 
 {{ $users->links() }}
 </div>
-<div class="border border-gray-300 rounded-lg">
+<div class="border border-gray-300 rounded-lg ml-4">
+<form wire:submit.prevent="submit" enctype="multipart/form-data" >
+
+<textarea class="border rounded-md" name="" id="" cols="30" rows="5" wire:model="message_send">  </textarea>
+<div>
+<button
+                type="submit"
+                class="bg-blue-500 rounded-lg shadow py-0.5 px-1 text-white text-sm h-10 hover:bg-blue-600" 
+            >
+                Publish
+</button>
+</div>
+</form>
 @forelse($messages as $message)
 <div class="flex p-4 border-b border-b-gray-400">
-<textarea class="border rounded-md" name="" id="" cols="30" rows="10"> {{$message->message}} </textarea>
+<p class="text-sm"> {{$message->message}}</p>
 </div>
 @empty
 <div>No messages! </div>
