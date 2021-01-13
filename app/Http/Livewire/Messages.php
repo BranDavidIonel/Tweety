@@ -28,15 +28,26 @@ class Messages extends Component
         //dd($messages);
         return view('livewire.messages',compact('users','messages'));
     }
+    public function delete($id_message){
+        $message=Message::find($id_message);
+        $message->delete();
+
+    }
+    /*
+    public function update($field){
+        //dd($field);
+        $this->validateOnly($filed,['message_send' => 'required|min:7']);
+
+    }
+    */
     public function setMessagesUserId($id_user){
-        //dd($id_user);
         $this->id_user=$id_user;
     }
     public function submit()
     {
        // dd($this->message_send);
         $this->validate([
-            'message_send' => 'required|min:2'
+            'message_send' => 'required|min:1'
         ]);
         $data=[
             'user_id'=>auth()->user()->id,
@@ -44,6 +55,10 @@ class Messages extends Component
             'message' => $this->message_send
         ];
         Message::create($data);
+        $this->resetValues();
   
+    }
+    public function resetValues(){
+        $this->message_send="";
     }
 }
