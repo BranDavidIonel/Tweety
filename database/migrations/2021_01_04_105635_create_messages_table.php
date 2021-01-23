@@ -19,6 +19,7 @@ class CreateMessagesTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('send_user_id');
             $table->string('message',400);
+            $table->string('name_file',100)->default('');
             $table->timestamps();
             $table->foreign('user_id')
                     ->references('id')

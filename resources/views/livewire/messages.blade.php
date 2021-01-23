@@ -24,12 +24,22 @@
 
     <textarea rows="7" class="w-full border rounded-md" wire:model="message_send"> </textarea>
     @error('message_send') <span class="error">{{ $message }}</span> @enderror
+    <div class="flex">
+                <input class="border border-gray-400 p-2 w-full"
+                       type="file"
+                       name="files[]"
+                       wire:model="files"
+                       id="files"
+                       multiple
+                >
+
+    </div>
     <div>
     <button
                     type="submit"
                     class="bg-blue-500 rounded-lg shadow py-0.5 px-1 text-white text-sm h-10 hover:bg-blue-600"   
                 >
-                    Publish
+                    Send
     </button>
     </div>
     </form>
@@ -63,6 +73,8 @@
     @empty
     <div>No messages! </div>
     @endforelse
+    
 </div>
 
 </div>
+
