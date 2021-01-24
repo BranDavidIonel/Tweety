@@ -1,0 +1,67 @@
+liwire youtube
+https://www.youtube.com/watch?v=HWTF-oi70e4&ab_channel=Bitfumes
+
+https://laracasts.com/series/laravel-6-from-scratch/episodes/49
+https://www.youtube.com/watch?v=5DREuAvFnps&ab_channel=LaravelBusiness
+
+glyphicon glyphicon-film
+glyphicon glyphicon-book
+glyphicon glyphicon-headphones
+
+
+git init
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/BranDavidIonel/VlindeTest.git
+git push -u origin main
+
+
+
+https://learnenglish.britishcouncil.org/apps/learnenglish-podcasts
+
+SiMeTrix04IS
+--c sharp
+https://www.math.uaic.ro/~cgales/csharp/Curs3.pdf
+--install xampp in ubuntu 
+https://www.youtube.com/watch?v=R5CUn5wGQGg&ab_channel=ProgrammingKnowledge
+
+--video ciorba cu carne de porc
+https://www.youtube.com/watch?v=GhNA4Fek0kI&list=PLGqU5jPjUPZdXGWy_mRcaxhXFOvyzLxXn
+
+
+<!--<button class="btn" href="{{route('create.MyWork')}}">Add a new project </button> -->
+cum sa imi pun site pe pc-ul meu
+https://www.youtube.com/watch?v=RcYixki4-is
+http://79.112.120.137/
+
+--laravel\
+Faculty of Mathematics
+
+--crud
+https://www.youtube.com/watch?v=WXBfJ4LBiC0
+
+----------------
+https://www.youtube.com/watch?v=EsxlsLSM6Ac&list=PL8z-YHNIa8wmcnHldN8AmxOIg8t_xtc-O&index=7
+
+
+ $table->id('id');
+            $table->string('ip');
+            $table->string('browser');
+            $table->string('device');
+            $table->string('os');
+            $table->dateTime('date_time_log', 0);
+
+
+rest api laravel app
+https://www.youtube.com/watch?v=rDJ7BebkNso&list=PLYVcyg3AF-zvDDXBLDyn9UJSgAYMWpUS3&ab_channel=AtifNaseem
+npm run watch
+serve -s dist (realease)
+
+SELECT web_magnat_info.service_status, COUNT(web_magnat_info.service_status) as nrStatuses FROM `web_magnat_info` GROUP BY web_magnat_info.service_status
+
+
+
+--ajax
+https://www.youtube.com/watch?v=zogLi4YqlSg&ab_channel=AdnanAfzal
+--add pagination doar php
+https://www.youtube.com/watch?v=ZuZxds-rehE&ab_channel=PHPLaravelTutorials
