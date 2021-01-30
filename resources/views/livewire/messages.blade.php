@@ -45,6 +45,7 @@
     </form>
 
     @forelse($messages as $message_user)
+    
         <div class="p-2 border-solid border-2 border-blue-400">
         <p class="text-sm ">
         <img src="{{ $message_user->user->avatar }}"
@@ -57,7 +58,19 @@
         {{ $message_user->message}}
 
         </p>
-        
+        @if(!empty($message_user->name_file))
+            @foreach(explode(',',$message_user->name_file) as $file)
+            @if($message_user->checkFile($file))
+            <img src="{{URL::to($message_user->path_file($file))}}" 
+            width="100px"
+            class="flex p-5 border-b border-b-red-400 rounded-md"
+            >
+            @endif
+            <a href="{{URL::to($message_user->path_file($file))}}" class="text-sm hover:text-white hover:bg-blue-600" download>
+            {{$file}}
+            </a>
+            @endforeach
+        @endif
         </div>
     @if($message_user->is_user_auth())
         <div class="border-solid border-2 border-blue-500">

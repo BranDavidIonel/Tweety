@@ -19,5 +19,18 @@ class Message extends Model
             return false;
         }
     }
+    public function path_file($file){
+        return asset('storage/'.$file);
+
+    }
+     //I whant to check if is an image(I check the extension of file), then I show image 
+     public function checkFile($filename){
+        $ext = substr($filename, strrpos($filename, '.') + 1);
+        if($ext=="jpg"||$ext=="png"||$ext=="svg"||$ext=="jpeg"){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }
