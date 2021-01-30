@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Session;
 use App\Tweet;
 class TweetsController extends Controller
 {
-    private $path='attash_tweet/';
+    private $path='tweet_files/';
     public function index()
     {
        //dd(  auth()->user()->timeline());
@@ -33,7 +33,8 @@ class TweetsController extends Controller
             $files=request('files')[$i];
             $ext=strtolower($files->getClientOriginalExtension());
             $files_full_name=$files_name.'.'.$ext;
-            $success=$files->move($this->path,$files_full_name);
+            //$success=$files->move($this->path,$files_full_name);
+            $success=$files->storeAs($this->path,$files_full_name);
             $str_files=$str_files.$files_full_name.',';
             }
             $str_files=mb_substr($str_files,0,-1);
@@ -60,7 +61,8 @@ class TweetsController extends Controller
             $files_split=explode(',', $tweet->name_file);
             foreach($files_split as $file){
             if($file){
-                unlink($this->path.$file);
+                //unlink(storage_path('app/public/'.$this->path.$file));
+                Storage::delete($this->path.$file);
                 }
             }
             Session::flash('success','The tweet '.'"'.$tweet->body.'"'.'it was deleted !') ;

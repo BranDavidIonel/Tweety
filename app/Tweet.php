@@ -26,6 +26,10 @@ class Tweet extends Model
             return false;
         }
     }
+    public function path_file($file){
+        return asset('storage/tweet_files/'.$file);
+
+    }
     //I whant to check if is an image(I check the extension of file), then I show image 
     public function checkFile($filename){
         $ext = substr($filename, strrpos($filename, '.') + 1);

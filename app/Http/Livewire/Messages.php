@@ -11,7 +11,7 @@ class Messages extends Component
 {
     use WithFileUploads;
     //use WithPagination;
-    private $path='attash_tweet/';
+    private $path='message/';
     public $messages;
     public $message_send;
     public $id_user;
@@ -69,7 +69,7 @@ class Messages extends Component
             $file=$this->files[$i];
             $ext=strtolower($file->getClientOriginalExtension());
             $file_full_name=$file_name.'.'.$ext;
-            $success=$file->storeAs('/',$file_full_name);
+            $success=$file->storeAs($this->path,$file_full_name);
             $str_files=$str_files.$file_full_name.',';
             }
             $str_files=mb_substr($str_files,0,-1);

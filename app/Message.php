@@ -20,7 +20,7 @@ class Message extends Model
         }
     }
     public function path_file($file){
-        return asset('storage/'.$file);
+        return asset('storage/message/'.$file);
 
     }
      //I whant to check if is an image(I check the extension of file), then I show image 

@@ -22,12 +22,12 @@
         @if(!empty($tweet->name_file))
         @foreach(explode(',',$tweet->name_file) as $file)
         @if($tweet->checkFile($file))
-        <img src="{{URL::to('/attash_tweet/'.$file)}}" 
+        <img src="{{URL::to($tweet->path_file($file))}}" 
         width="100px"
         class="flex p-5 border-b border-b-red-400 rounded-md"
         />
         @endif
-        <a href="{{URL::to('/attash_tweet/'.$file)}}" class="text-sm hover:text-white hover:bg-blue-600" download>
+        <a href="{{URL::to($tweet->path_file($file))}}" class="text-sm hover:text-white hover:bg-blue-600" download>
         {{$file}}
         </a>
         @endforeach
