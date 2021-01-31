@@ -45,14 +45,12 @@ class User extends Authenticatable
     public function getAvatarAttribute($value)
     {
         //return "https://i.pravatar.cc/120?u=" . $this->email;
-        return $value ? "images/".$value :"/images/default-avatar.jpeg";
-        //return asset($value);
+        //return $value ? "images/".$value :"/images/default-avatar.jpeg";
+        return $value ? asset('storage/avatar_img/'.$value) :"/images/default-avatar.jpeg";
     }
     public function getBannerImgAttribute($value)
     {
-        
-        return $value ? "images/".$value :"/images/default-profile-banner.jpg";
-        //return asset($value);
+        return $value ? asset('storage/banner_img/'.$value) :"/images/default-profile-banner.jpg";
     }
     public function tweets(){
         return $this->hasMany(Tweet::class)->latest();

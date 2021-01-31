@@ -57,7 +57,11 @@
                        id="avatar"
                        accept="image/*"
                 >
-
+                <input type="hidden" 
+                       name="avatar_old"
+                       id="avatar_old"
+                       value="{{$user->avatar}}"
+                >
                 <img src="{{ URL::to($user->avatar) }}"
                      alt="your avatar"
                      width="40"
@@ -83,7 +87,11 @@
                        id="banner_img"
                        accept="image/*"
                 >
-
+                <input type="hidden" 
+                       name="banner_old"
+                       id="banner_old"
+                       value="{{$user->banner_img}}"
+                >
                 <img src="{{ URL::to($user->banner_img) }}"
                      alt="your banner"
                      width="40"
