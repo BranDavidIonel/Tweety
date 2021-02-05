@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMessagesTable extends Migration
+class CreateFilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,17 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
-            //$table->primary(['user_id', 'send_user_id']);
+            $table->integer('id_parent')->default(0);
+            $table->tinyInteger('type_parent')->default(0);
             $table->foreignId('user_id');
-            $table->foreignId('send_user_id');
-            $table->string('message',400);
-            //$table->string('name_file',100)->default('');
-            $table->timestamps();
+            $table->string('name_file',100)->default(''); 
             $table->foreign('user_id')
                     ->references('id')
                     ->on('users')
                     ->onDelete('cascade');
-    
-            $table->foreign('send_user_id')
-                    ->references('id')
-                    ->on('users')
-                    ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -40,6 +34,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('files');
     }
 }

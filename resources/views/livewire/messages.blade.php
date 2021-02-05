@@ -58,8 +58,9 @@
         {{ $message_user->message}}
 
         </p>
-        @if(!empty($message_user->name_file))
-            @foreach(explode(',',$message_user->name_file) as $file)
+        
+        @if(!empty($message_user->getFiles()->name_files))
+            @foreach(explode(',',$message_user->getFiles()->name_files) as $file)
             @if($message_user->checkFile($file))
             <img src="{{URL::to($message_user->path_file($file))}}" 
             width="100px"

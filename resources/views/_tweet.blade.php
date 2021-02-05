@@ -19,8 +19,8 @@
             {{ $tweet->body }}
         </p>
         
-        @if(!empty($tweet->name_file))
-        @foreach(explode(',',$tweet->name_file) as $file)
+        @if(!empty($tweet->getFiles()->name_files))
+        @foreach(explode(',',$tweet->getFiles()->name_files) as $file)
         @if($tweet->checkFile($file))
         <img src="{{URL::to($tweet->path_file($file))}}" 
         width="100px"
