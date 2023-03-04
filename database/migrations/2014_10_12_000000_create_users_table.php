@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('name');
             $table->string('avatar')->default('');
-            $table->text('description')->default('');
+            $table->text('description');
             $table->string('banner_img')->default('');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
