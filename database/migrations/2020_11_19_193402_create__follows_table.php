@@ -13,7 +13,7 @@ class CreateFollowsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Follows', function (Blueprint $table) {
+        Schema::create('follows', function (Blueprint $table) {
        
                 $table->primary(['user_id', 'following_user_id']);
                 $table->foreignId('user_id');
